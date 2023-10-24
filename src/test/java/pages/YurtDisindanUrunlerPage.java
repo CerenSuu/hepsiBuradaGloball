@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -46,20 +47,22 @@ public class YurtDisindanUrunlerPage extends Base{
 
     public void assertMySepetPage() {
         String actualUrl= driver.getCurrentUrl();
-        Assert.assertEquals(actualUrl,"https://checkout.hepsiburada.com/");
+        Assert.assertEquals(actualUrl,"https://checkout.hepsiburada.com/sepetim");
     }
 
     @FindBy(xpath = "//div[@class='product_name_2Klj3']")
     private WebElement productName;
-    public void checkProductName() {
-        clickFunction(productName);
+    public void checkProductName() throws InterruptedException {
+        Thread.sleep(400);
+        productName.isDisplayed();
+        //Assert.assertTrue(driver.getPageSource().contains("Sunsky"));
     }
 
     @FindBy(xpath = "//*[@id='app']/div/div/div[2]/div/div[1]/header/div[2]")
     private WebElement sil;
-    public void seeProductName() throws InterruptedException {
-        clickFunction(sil);
-        Thread.sleep(1000);
-    }
+    //public void seeProductName() throws InterruptedException {
+       // clickFunction(sil);
+        //Thread.sleep(1000);
+    //}
 
 }

@@ -60,7 +60,7 @@ public class LoginPage extends Base {
 
 
     public void assertMyMessage() {
-        Assert.assertTrue(driver.getPageSource().contains("giriş yap"));
+        Assert.assertTrue(driver.getPageSource().contains("Hesabım"));
     }
 
     @FindBy(xpath = "//div[@class='Xb9hP']")
