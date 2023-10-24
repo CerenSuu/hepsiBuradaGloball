@@ -60,8 +60,6 @@ public class LoginPageStepDef {
 
         loginPage.assertMyMessage();
 
-        System.out.println("cerenn");
-
     }
 
     @And("Click e-posta adresi and sonraki button")

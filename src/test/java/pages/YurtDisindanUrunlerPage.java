@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 import utilities.Driver;
 
 public class YurtDisindanUrunlerPage extends Base{
@@ -41,6 +42,11 @@ public class YurtDisindanUrunlerPage extends Base{
     private WebElement sepetim;
     public void clickSepetim() {
         clickFunction(sepetim);
+    }
+
+    public void assertMySepetPage() {
+        String actualUrl= driver.getCurrentUrl();
+        Assert.assertEquals(actualUrl,"https://checkout.hepsiburada.com/");
     }
 
     @FindBy(xpath = "//div[@class='product_name_2Klj3']")

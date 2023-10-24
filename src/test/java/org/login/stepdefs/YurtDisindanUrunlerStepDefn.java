@@ -15,7 +15,7 @@ public class YurtDisindanUrunlerStepDefn {
 
     private WebDriver driver;
     YurtDisindanUrunlerPage yurtDisindanUrunlerPage = new YurtDisindanUrunlerPage();
-
+    String expectedUrl="";
 
     @Given("User logged in")
     public void successfull_login() {
@@ -44,11 +44,12 @@ public class YurtDisindanUrunlerStepDefn {
     @And("Click sepetim")
     public void click_sepetim() {
         yurtDisindanUrunlerPage.clickSepetim();
+        yurtDisindanUrunlerPage.assertMySepetPage();
         System.out.println("Sepete gidildi");
     }
     @Then("Verify your product in your cart")
     public void verify_your_product_in_your_cart() throws InterruptedException {
-        yurtDisindanUrunlerPage.seeProductName();
+        yurtDisindanUrunlerPage.checkProductName();
         System.out.println("product kontrol edildi");
     }
     @After
