@@ -15,6 +15,7 @@ Feature: Login Test
     Examples:
       | e-posta | password |
       | cerensuylmz91@gmail.com| DumMy53 |
+      | su.yilmazz3@gmail.com| DumMy53 |
 
 
 

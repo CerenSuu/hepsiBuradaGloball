@@ -63,16 +63,4 @@ public class LoginPage extends Base {
         Assert.assertTrue(driver.getPageSource().contains("Hesabım"));
     }
 
-    @FindBy(xpath = "//div[@class='Xb9hP']")
-    private WebElement mailYaz;
-    public void yazMail() {
-        sendKeysFunction(mailYaz, "su.yilmazz3@gmail.com");
-        //clickFunction(sonrakibutton);
-    }
-
-    @FindBy(id = "btnGoogle")
-    private WebElement google;
-    public void clickGoogle() {
-        clickFunction(google);
-    }
 }
