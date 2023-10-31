@@ -13,9 +13,9 @@ Feature: Login Test
     Then Verify success message
 
     Examples:
-      | e-posta | password |
-      | cerensuylmz91@gmail.com| DumMy53 |
-      | su.yilmazz3@gmail.com| DumMy53 |
+      | e-posta                 | password |
+      | cerensuylmz91@gmail.com | DumMy53  |
+      | su.yilmazz3@gmail.com   | DumMy53  |
 
 
 

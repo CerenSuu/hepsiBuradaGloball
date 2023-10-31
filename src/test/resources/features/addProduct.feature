@@ -8,4 +8,4 @@ Feature: addProduct
     And Hoover over for 2nd item
     And Click select sepete ekle button for 2nd item
     And Click sepetim
-   Then Verify your product in your cart
+    Then Verify your product in your cart

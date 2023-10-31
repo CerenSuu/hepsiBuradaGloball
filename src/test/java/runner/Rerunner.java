@@ -6,7 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         tags = "@Rerun",
         features = "@Failed/failedSenarios.txt",
-        glue = {"org.login.stepdefs","hooks"},
+        glue = {"org.login.stepdefs", "hooks"},
         plugin = {"pretty",
                 "json:target/report/cucumber.json",
                 "html:target/default-cucumber-reports.html",

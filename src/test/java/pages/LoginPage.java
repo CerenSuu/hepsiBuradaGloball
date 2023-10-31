@@ -10,6 +10,18 @@ import utilities.Driver;
 public class LoginPage extends Base {
 
     WebDriver driver;
+    @FindBy(id = "myAccount")
+    private WebElement clickGirisYapButtonVeyaUyeOlButton;
+    @FindBy(xpath = "//a[@id='login']")
+    private WebElement girisYapButton;
+    @FindBy(id = "txtUserName")
+    private WebElement typeEMailTextArea;
+    @FindBy(id = "btnLogin")
+    private WebElement loginButton;
+    @FindBy(id = "txtPassword")
+    private WebElement typePasswordTextArea;
+    @FindBy(id = "btnEmailSelect")
+    private WebElement loginnButton;
 
     public LoginPage() {
 
@@ -18,43 +30,31 @@ public class LoginPage extends Base {
 
     }
 
-    @FindBy(id = "myAccount")
-    private WebElement clickGirisYapButtonVeyaUyeOlButton;
     public void clickGirisYapButtonVeyaUyeOlButton() {
 
         clickFunction(clickGirisYapButtonVeyaUyeOlButton);
     }
 
-    @FindBy(xpath = "//a[@id='login']")
-    private WebElement girisYapButton;
     public void clickgirisYapButton() {
         clickFunction(girisYapButton);
     }
 
-    @FindBy(id = "txtUserName")
-    private WebElement typeEMailTextArea;
     public void typeeMail(String email) {
-        sendKeysFunction(typeEMailTextArea,email);
+        sendKeysFunction(typeEMailTextArea, email);
     }
 
-    @FindBy(id = "btnLogin")
-    private WebElement loginButton;
     public void clickLoginButton() {
         clickFunction(loginButton);
     }
 
-    @FindBy(id = "txtPassword")
-    private WebElement typePasswordTextArea;
     public void typePassword(String password) throws InterruptedException {
         sendKeysFunction(typePasswordTextArea, password);
         Thread.sleep(500);
     }
 
-    @FindBy(id = "btnEmailSelect")
-    private WebElement loginnButton;
     public void clickloginnButton() throws InterruptedException {
-         loginnButton.isDisplayed();
-       Thread.sleep(500);
+        loginnButton.isDisplayed();
+        Thread.sleep(500);
         clickFunction(loginnButton);
     }
 

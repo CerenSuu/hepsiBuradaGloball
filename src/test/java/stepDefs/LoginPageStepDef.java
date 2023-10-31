@@ -1,6 +1,5 @@
 package stepDefs;
 
-import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -12,8 +11,8 @@ import utilities.Driver;
 
 public class LoginPageStepDef {
 
-    private WebDriver driver;
     LoginPage loginPage = new LoginPage();
+    private WebDriver driver;
 
     @Given("Go to hepsi burada website")
     public void go_to_hepsi_burada_website() {
@@ -58,7 +57,7 @@ public class LoginPageStepDef {
     }
 
     @And("Type {string}")
-    public void type_password(String password) throws InterruptedException {
+    public void type_password(String password)  {
         try {
             loginPage.typePassword(password);
         } catch (Exception e) {
@@ -67,7 +66,7 @@ public class LoginPageStepDef {
     }
 
     @And("Click to loginn button")
-    public void click_to_loginn_button() throws InterruptedException {
+    public void click_to_loginn_button() {
         try {
             loginPage.clickloginnButton();
         } catch (Exception e) {
