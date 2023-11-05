@@ -12,7 +12,8 @@ import io.cucumber.testng.CucumberOptions;
                 "html:target/report/cucumber-html-report.html",
                 "usage:target/report/cucumber-usage.json",
                 "testng:target/report/cucumber-results.xml",
-                "rerun:Failed/failedSenarios.txt"},
+                "rerun:Failed/failedSenarios.txt",
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         monochrome = true,
         publish = true,
         dryRun = false)

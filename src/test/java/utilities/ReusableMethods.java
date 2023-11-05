@@ -1,9 +1,6 @@
 package utilities;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 
 import java.io.File;
@@ -82,4 +79,13 @@ public class ReusableMethods {
         }
         return elemTexts;
     }
+    public static void clickJSElementWithJavaScript(String javascriptYolu) {
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+        WebElement webElement = (WebElement) jse.executeScript("return " + javascriptYolu + "");
+        jse.executeScript("arguments[0].click();", webElement);
+
+    }
 }
+// (xpath = "//span[normalize-space()='Sepete Ekle']")  >>> Bosluklu text için locate alma
+// source-event listener break points-mouse-contextmenu   >>> Kaybolan alerti almak için ekran dondurma (mouse unn sağ tuşu kullannılır.)
+
