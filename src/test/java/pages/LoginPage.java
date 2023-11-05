@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import utilities.Driver;
 
+import static org.testng.AssertJUnit.*;
+
 public class LoginPage extends Base {
 
     WebDriver driver;
@@ -60,7 +62,11 @@ public class LoginPage extends Base {
 
 
     public void assertMyMessage() {
-        Assert.assertTrue(driver.getPageSource().contains("Hesabım"));
+        assertTrue(driver.getPageSource().contains("Hesabım"));
+        String expextedUrl = "https://www.hepsiburada.com/kampanyalar/yurt-disindan-urunler?wt_int=hytop.yurtdisi.kampanya";
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        assertEquals(expextedUrl, actualUrl);
+
     }
 
 }

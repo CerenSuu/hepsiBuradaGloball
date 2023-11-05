@@ -9,13 +9,15 @@ import org.testng.asserts.Assertion;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import java.util.List;
+
 public class YurtDisindanUrunlerPage extends Base {
     @FindBy(xpath = "//*[@id='onetrust-accept-btn-handler']")
     public WebElement cerezkabulbutonu;
     @FindBy(xpath = "//*[@id='i1']/div/a/div[2]")
     public WebElement productHover;
     WebDriver driver;
-    @FindBy(xpath = "//*[@id='AllCategories.CategoryId']/div/div/div/div/div/div[2]/div[17]/div/div[1]/div")
+    @FindBy(xpath = "//div[contains(text(),'Pet Shop')]")
     private WebElement petShop;
     @FindBy(xpath = "//*[@id='i1']/div/a/div[2]/button")
     private WebElement sepeteEkle;
@@ -25,6 +27,10 @@ public class YurtDisindanUrunlerPage extends Base {
     private WebElement sepetim;
     @FindBy(xpath = "//div[@class='product_name_2Klj3']")
     private WebElement productName;
+    @FindBy(xpath = "//*[@class='productListContent-zAP0Y5msy8OHn5z7T_K_']")
+    public List<WebElement> petShopUrunler;
+    @FindBy(id = "SearchBoxOld_eacfe68b-4a8d-4226-f9c2-6b39c8ddd0c1")
+    public  WebElement searchBox;
 
     public YurtDisindanUrunlerPage() {
 
@@ -37,8 +43,14 @@ public class YurtDisindanUrunlerPage extends Base {
     public void clickPetShop() {
         try {
             clickFunction(petShop);
-            Thread.sleep(500);
+            ReusableMethods.waitFor(3);
             driver.navigate().refresh();
+        } catch (Exception e) {
+            Assert.fail("clickPetShop is not completed! The reason: " + e.getMessage());
+        }
+    }
+    public void assertPetShopPage() {
+        try {
             String actualUrl = driver.getCurrentUrl();
             Assert.assertEquals(actualUrl, "https://www.hepsiburada.com/kampanyalar/yurt-disindan-urunler?kategori=2147483616&wt_int=hytop.yurtdisi.kampanya");
         } catch (Exception e) {
@@ -50,12 +62,11 @@ public class YurtDisindanUrunlerPage extends Base {
         try {
             clickFunction(sepeteEkle);
             ReusableMethods.waitFor(2);
-            if (productHover.isEnabled()){
-                ReusableMethods.waitFor(2);
-            }else {
-                clickFunction(sepeteEkle2);
-                ReusableMethods.waitFor(2);
-            }
+            //ReusableMethods.clickJSElementWithJavaScript("document.querySelector(\"div > div > div.hb-toast-close-icon-holder > svg\")");
+            ReusableMethods.waitFor(4);
+            clickFunction(sepeteEkle2);
+                ReusableMethods.waitFor(3);
+
         } catch (Exception e) {
             Assert.fail("clickSepeteEkle is not completed! The reason: " + e.getMessage());
         }
@@ -81,7 +92,7 @@ public class YurtDisindanUrunlerPage extends Base {
     public void checkProductName() {
         try {
             ReusableMethods.waitFor(4);
-            Assert.assertTrue(productName.isDisplayed());
+            Assert.assertTrue(productName.getText().contains("Better"));
             //Assert.assertTrue(driver.getPageSource().contains("Sunsky"));
         } catch (Exception e) {
             Assert.fail("checkProductName is not completed! The reason: " + e.getMessage());
